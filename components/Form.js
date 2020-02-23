@@ -7,19 +7,17 @@ import Button from './Button';
 const Form = () => {
   return (
     <View>
-      <Input label="Date of Birth" />
-      <Input label="Gender" />
-      <Input label="Residential Address" />
-      <Input label="Education Level" />
-      <Input label="Nationality" />
-      <Input label="Employment Status" />
-      <Input label="Marital Status" />
-      <Input label="Guarantor's Name" />
-      <Input label="Relationship" />
-      <Input label="Guarantor's Address" />
-      <Input label="Guarantor's Contact Number" />
-      <Button />
-      <Text>Your data is secure.</Text>
+      <Input label="Date of Birth" datePicker icon="calendar" />
+      <Input label="Gender" picker icon="venus-mars" />
+      <Input label="Residential Address" textInput icon="home" />
+      <Input label="Education Level" picker icon="graduation-cap" />
+      <Input label="Nationality" picker icon="flag"/>
+      <Input label="Employment Status" picker icon="suitcase" />
+      <Input label="Marital Status" picker icon="life-ring" />
+      <Input label="Guarantor's Name" textInput icon="user" />
+      <Input label="Relationship" picker icon="link" />
+      <Input label="Guarantor's Address" textInput icon="home" />
+      <Input label="Guarantor's Contact Number" textInput icon="phone" />
     </View>
   );
 };

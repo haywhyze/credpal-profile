@@ -1,14 +1,20 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import Form from './Form';
 
 const Main = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <Form />
     </View>
   );
 };
 
 export default Main;
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'flex-start'
+  }
+});

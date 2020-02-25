@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
 
 import HeaderEdit from './HeaderEdit';
+import FormEdit from './FormEdit';
 
 const EditProfile = () => {
   return (
@@ -12,7 +13,7 @@ const EditProfile = () => {
           style={styles.scrollView}>
           <View style={styles.container}>
             <HeaderEdit />
-            <Text>Just Here Thinking about my Life</Text>
+            <FormEdit />
           </View>
         </ScrollView>
       </SafeAreaView>

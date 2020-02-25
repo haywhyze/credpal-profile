@@ -82,4 +82,5 @@ const styles = StyleSheet.create({
     height: 20,
     width: 170,
   },
+
 });

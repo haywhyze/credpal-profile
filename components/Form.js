@@ -4,6 +4,7 @@ import {StyleSheet, View} from 'react-native';
 import Input from './Input';
 
 const Form = () => {
+ 
   return (
     <View style={styles.container}>
       <Input size={50} label="Date of Birth" datePicker icon="calendar" />

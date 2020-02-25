@@ -5,10 +5,10 @@ import TopBarEdit from './TopBarEdit';
 import NavBarEdit from './NavBarEdit';
 import TitleEdit from './TitleEdit';
 
-const Header = () => {
+const Header = ({navigation}) => {
   return (
     <View>
-      <TopBarEdit />
+      <TopBarEdit navigation={navigation} />
       <TitleEdit />
       <NavBarEdit />
     </View>

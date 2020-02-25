@@ -4,7 +4,7 @@ import {SafeAreaView, StyleSheet, ScrollView, View, Text} from 'react-native';
 import HeaderEdit from './HeaderEdit';
 import FormEdit from './FormEdit';
 
-const EditProfile = () => {
+const EditProfile = ({navigation}) => {
   return (
     <>
       <SafeAreaView>
@@ -12,7 +12,7 @@ const EditProfile = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <View style={styles.container}>
-            <HeaderEdit />
+            <HeaderEdit navigation={navigation} />
             <FormEdit />
           </View>
         </ScrollView>

@@ -27,7 +27,7 @@ const Input = ({
         )}
         {picker && (
           <Picker
-            selectedValue="java"
+            selectedValue={pickerItems[0].value}
             style={[styles.picker, {width: size * 3 + 12}]}>
             {pickerItems.map((item, index) => (
               <Picker.Item

@@ -1,59 +1,53 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, Picker } from "react-native";
-// import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import DateTimePicker from "@react-native-community/datetimepicker";
+import React from 'react';
+import {StyleSheet, View, Text, TextInput, Picker} from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import IconFA from 'react-native-vector-icons/FontAwesome';
 
-const Input = ({ label, icon, size, datePicker }) => {
-  const [date, setDate] = useState(new Date(1598051730000));
-  const [mode, setMode] = useState("date");
-  const [show, setShow] = useState(false);
-
-  const onChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-
-    setDate(currentDate);
-    setShow(Platform.OS === "ios" ? true : false);
-  };
-
-  const showMode = currentMode => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  const showDatepicker = () => {
-    console.log('object')
-    showMode("date");
-  };
-
+const Input = ({
+  label,
+  icon,
+  size,
+  picker,
+  textInput,
+  placeholder,
+  pickerItems,
+  datePicker,
+}) => {
   return (
-    <View style={StyleSheet.flatten([styles.container, { width: `${size}%` }])}>
-      {/* <FontAwesomeIcon color="rgba(100,100,100,.4)" icon={icon} /> */}
+    <View style={StyleSheet.flatten([styles.container, {width: `${size}%`}])}>
+      {icon === 'venus-mars' || icon === 'life-ring' ? (
+        <IconFA name={icon} size={16} color="rgba(100,100,100,.5)" />
+      ) : (
+        <Icon name={icon} size={16} color="rgba(100,100,100,.5)" />
+      )}
       <View style={styles.textContainer}>
         <Text style={styles.label}>{label}</Text>
+        {textInput && (
+          <TextInput placeholder={placeholder} style={styles.textInput} />
+        )}
+        {picker && (
+          <Picker
+            selectedValue={pickerItems[0].value}
+            style={[styles.picker, {width: size * 3 + 12}]}>
+            {pickerItems.map((item, index) => (
+              <Picker.Item
+                key={`${item.value + item.index}`}
+                label={item.label}
+                value={item.value}
+              />
+            ))}
+          </Picker>
+        )}
         {datePicker && (
           <Picker
-            selectedValue={new Date(date).toLocaleDateString("us-EN", {
-              year: "numeric",
-              month: "long",
-              day: "numeric"
-            })}
-            // style={{ height: 50, width: 100 }}
-            onClick={showDatepicker}
-            // onValueChange={}
-          ></Picker>
+            selectedValue={new Date()}
+            style={[styles.picker, {width: size * 3 + 12}]}>
+            <Picker.Item
+              label={new Date().toLocaleDateString('us-EN')}
+              value={new Date()}
+            />
+          </Picker>
         )}
-        {datePicker && show && (
-          <DateTimePicker
-            testID="dateTimePicker"
-            timeZoneOffsetInMinutes={0}
-            value={date}
-            mode={mode}
-            is24Hour={true}
-            display="default"
-            onChange={onChange}
-          />
-        )}
-        {/* <Text>Text</Text> */}
       </View>
     </View>
   );
@@ -63,20 +57,30 @@ export default Input;
 
 const styles = StyleSheet.create({
   container: {
-    borderBottomColor: "rgba(100,100,100,.2)",
+    borderBottomColor: 'rgba(100,100,100,.2)',
     borderBottomWidth: 1,
     paddingBottom: 8,
     paddingTop: 8,
-    flexDirection: "row",
-    alignItems: "flex-end",
-    marginBottom: 16
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    marginBottom: 16,
   },
   textContainer: {
-    flexDirection: "column",
-    marginLeft: 8
+    flexDirection: 'column',
+    marginLeft: 8,
   },
   label: {
-    color: "#274fed",
-    fontSize: 7.5
-  }
+    color: '#274fed',
+    fontSize: 10,
+    paddingBottom: 4,
+  },
+  textInput: {
+    height: 16,
+    padding: 0,
+  },
+  picker: {
+    height: 20,
+    width: 170,
+  },
+
 });

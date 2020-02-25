@@ -1,14 +1,14 @@
-import React from "react";
-import { StyleSheet, View } from "react-native";
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 
 const NavBar = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.bar}></View>
-      <View style={styles.bar}></View>
-      <View style={styles.bar}></View>
-      <View style={styles.bar}></View>
-      <View style={styles.bar}></View>
+      <View style={styles.bar} />
+      <View style={[styles.bar, styles.empty]} />
+      <View style={[styles.bar, styles.empty]} />
+      <View style={[styles.bar, styles.empty]} />
+      <View style={[styles.bar, styles.empty]} />
     </View>
   );
 };
@@ -19,14 +19,17 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
     paddingBottom: 16,
-    alignItems: "center",
-    justifyContent: "space-around",
-    flexDirection: "row"
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    flexDirection: 'row',
   },
   bar: {
-    width: "18%",
+    width: '18%',
     height: 4,
     borderRadius: 5,
-    backgroundColor: "#274fed"
-  }
+    backgroundColor: '#274fed',
+  },
+  empty: {
+    backgroundColor: '#eaeefd',
+  },
 });

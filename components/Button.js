@@ -1,13 +1,13 @@
-import React from "react";
-import { StyleSheet, View, Button, Alert } from "react-native";
+import React from 'react';
+import {StyleSheet, View, Button} from 'react-native';
 
-const ButtonComponent = () => {
+const ButtonComponent = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Button
         title="Next"
         color="#274fed"
-        onPress={() => Alert.alert("Simple Button pressed")}
+        onPress={() => navigation.navigate('Edit')}
       />
     </View>
   );
@@ -19,5 +19,5 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 16,
     paddingBottom: 16,
-  }
+  },
 });

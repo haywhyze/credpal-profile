@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React from 'react';
+import {StyleSheet, View, Text} from 'react-native';
 
 const Title = () => {
   return (
@@ -17,18 +17,19 @@ export default Title;
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 16,
-    paddingBottom: 16
+    paddingTop: 8,
+    paddingBottom: 8,
   },
   heading: {
-    color: "#274fed",
-    fontSize: 32,
-    fontWeight: "bold",
-    paddingTop: 16,
-    paddingBottom: 8
+    color: '#274fed',
+    fontSize: 40,
+    fontWeight: 'bold',
+    paddingTop: 8,
+    paddingBottom: 8,
   },
   subtitle: {
+    fontSize: 14,
     paddingTop: 8,
-    paddingBottom: 16
-  }
+    paddingBottom: 8,
+  },
 });
